@@ -34,6 +34,12 @@ func init() {
 		"version":       VersionNumber,
 		"pid":           os.Getpid(),
 	}).Infof("Starting account server")
+
+	viper.SetConfigName("configuration")
+	viper.AddConfigPath(ConfigurationFilePath)
+	if err := viper.ReadInConfig(); err != nil {
+		logrus.Warnf("couldn't load configuration: %v", err)
+	}
 }
 
 func main() {
@@ -48,12 +54,6 @@ func main() {
 
 // initializeServer creates all pertinent endpoints of the service and returns the server.
 func initializeServer() (engine *gin.Engine, err error) {
-	viper.SetConfigName("configuration")
-	viper.AddConfigPath(ConfigurationFilePath)
-	if err := viper.ReadInConfig(); err != nil {
-		return nil, err
-	}
-
 	engine = gin.Default()
 
 	internal := engine.Group("/internal")
