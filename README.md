@@ -1,4 +1,5 @@
 # PiggyMetrics
+[![Build Status](https://travis-ci.org/Am3o/PiggyMetrics.svg?branch=master)](https://travis-ci.org/Am3o/PiggyMetrics)
 [![GitHub license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/am3o/PiggyMetrics/blob/master/LICENCE)
 
 Microservice Architecture with Golang and Docker.
