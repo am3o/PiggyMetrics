@@ -12,7 +12,7 @@ install:
   - dep ensure
 
 script:
-  - go test -cover -race -v $(go list ./... | grep -v /vendor/ | grep -v /integration | tr "\n" " ") -coverprofile=coverage.txt -covermode=atomic
+  - script/go.test.sh
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
