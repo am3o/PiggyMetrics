@@ -13,7 +13,6 @@ install:
 
 script:
   - go test -cover -race -v $(go list ./... | grep -v /vendor/ | grep -v /integration | tr "\n" " ") -coverprofile=coverage.txt -covermode=atomic
-  - go build -o bin/account cmd/account/account_server.go
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
