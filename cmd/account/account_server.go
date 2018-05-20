@@ -44,13 +44,17 @@ func main() {
 		return
 	}
 
-	server := initializeServer()
+	server, err := initializeServer()
+	if err != nil {
+		logrus.Error(err)
+		return
+	}
 
 	server.Run(viper.GetString(ConfigurationListenKey))
 }
 
 // initializeServer creates all pertinent endpoints of the service and returns the server.
-func initializeServer() (engine *gin.Engine) {
+func initializeServer() (engine *gin.Engine, err error) {
 	engine = gin.Default()
 
 	internal := engine.Group("/internal")
@@ -59,7 +63,7 @@ func initializeServer() (engine *gin.Engine) {
 		internal.GET("/version", VersionCheck)
 	}
 
-	return engine
+	return engine, nil
 }
 
 // VersionCheck returns the current version of the sevice.
