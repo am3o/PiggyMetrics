@@ -51,8 +51,7 @@ func initializeServer() (engine *gin.Engine, err error) {
 	viper.SetConfigName("configuration")
 	viper.AddConfigPath(ConfigurationFilePath)
 	if err := viper.ReadInConfig(); err != nil {
-		logrus.Error(err)
-		return
+		return nil, err
 	}
 
 	engine = gin.Default()
