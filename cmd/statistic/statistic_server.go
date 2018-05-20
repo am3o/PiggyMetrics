@@ -11,18 +11,18 @@ import (
 )
 
 const (
-	// ConfigurationListenKey discribes the key-word for the configuration file.
+	// ConfigurationListenKey describes the key-word for the configuration file.
 	ConfigurationListenKey = "service.listen"
-	// ServiceName discribes the name of the service.
+	// ServiceName describes the name of the service.
 	ServiceName = "Statistic-Service"
 )
 
 var (
-	// ConfigurationsName discribes the state of the service
+	// ConfigurationsName describes the state of the service
 	ConfigurationsName = "debug"
-	// ConfigurationFilePath discribes the location of the configuration file.
+	// ConfigurationFilePath describes the location of the configuration file.
 	ConfigurationFilePath = "configuration/statistic"
-	// VersionNumber discribe the version of the service
+	// VersionNumber describes the version of the service
 	VersionNumber = "0.0.0"
 )
 
@@ -65,7 +65,7 @@ func initializeStatisticServer() (engine *gin.Engine, err error) {
 	return engine, nil
 }
 
-// VersionCheck returns the current version of the sevice.
+// VersionCheck returns the current version of the service.
 func VersionCheck(c *gin.Context) {
 	c.String(http.StatusOK, VersionNumber)
 }
