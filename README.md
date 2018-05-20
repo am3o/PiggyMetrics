@@ -1,6 +1,7 @@
 # PiggyMetrics
 [![Build Status](https://travis-ci.org/Am3o/PiggyMetrics.svg?branch=master)](https://travis-ci.org/Am3o/PiggyMetrics)
 [![codecov](https://codecov.io/gh/Am3o/PiggyMetrics/branch/master/graph/badge.svg)](https://codecov.io/gh/Am3o/PiggyMetrics)
+[![Go Report Card](https://goreportcard.com/badge/github.com/Am3o/PiggyMetrics)](https://goreportcard.com/report/github.com/Am3o/PiggyMetrics)
 [![GitHub license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/am3o/PiggyMetrics/blob/master/LICENCE)
 
 Microservice Architecture with Golang and Docker.
