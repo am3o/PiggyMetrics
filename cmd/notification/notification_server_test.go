@@ -13,13 +13,13 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
-var notification *gin.Engine
+var notificationServer *gin.Engine
 
 func TestMain(m *testing.M) {
 	gin.SetMode(gin.ReleaseMode)
 
 	var err error
-	notification, err = initializeServer()
+	notificationServer, err = initializeServer()
 	if err != nil {
 		logrus.Error(err)
 		os.Exit(-1)
@@ -32,7 +32,7 @@ func TestMain(m *testing.M) {
 func executeRequest(req *http.Request) *httptest.ResponseRecorder {
 	rr := httptest.NewRecorder()
 
-	notification.ServeHTTP(rr, req)
+	notificationServer.ServeHTTP(rr, req)
 
 	return rr
 }
