@@ -13,13 +13,13 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
-var accountService *gin.Engine
+var statisticServer *gin.Engine
 
 func TestMain(m *testing.M) {
 	gin.SetMode(gin.ReleaseMode)
 
 	var err error
-	accountService, err = initializeServer()
+	statisticServer, err = initializeServer()
 	if err != nil {
 		logrus.Error(err)
 		os.Exit(-1)
@@ -32,7 +32,7 @@ func TestMain(m *testing.M) {
 func executeRequest(req *http.Request) *httptest.ResponseRecorder {
 	rr := httptest.NewRecorder()
 
-	accountService.ServeHTTP(rr, req)
+	statisticServer.ServeHTTP(rr, req)
 
 	return rr
 }
