@@ -1,9 +1,9 @@
 package main
 
 import (
-	"os"
-
 	"net/http"
+
+	"os"
 
 	"github.com/gin-gonic/gin"
 	"github.com/sirupsen/logrus"
@@ -28,22 +28,15 @@ var (
 
 func init() {
 	logrus.SetLevel(logrus.DebugLevel)
-}
 
-func main() {
 	logrus.WithFields(logrus.Fields{
 		"configuration": ConfigurationsName,
 		"version":       VersionNumber,
 		"pid":           os.Getpid(),
 	}).Infof("Starting account server")
+}
 
-	viper.SetConfigName("configuration")
-	viper.AddConfigPath(ConfigurationFilePath)
-	if err := viper.ReadInConfig(); err != nil {
-		logrus.Error(err)
-		return
-	}
-
+func main() {
 	server, err := initializeServer()
 	if err != nil {
 		logrus.Error(err)
@@ -55,6 +48,13 @@ func main() {
 
 // initializeServer creates all pertinent endpoints of the service and returns the server.
 func initializeServer() (engine *gin.Engine, err error) {
+	viper.SetConfigName("configuration")
+	viper.AddConfigPath(ConfigurationFilePath)
+	if err := viper.ReadInConfig(); err != nil {
+		logrus.Error(err)
+		return
+	}
+
 	engine = gin.Default()
 
 	internal := engine.Group("/internal")
