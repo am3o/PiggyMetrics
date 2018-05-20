@@ -19,7 +19,7 @@ func TestMain(m *testing.M) {
 	gin.SetMode(gin.ReleaseMode)
 
 	var err error
-	statisticServer, err = initializeServer()
+	statisticServer, err = initializeStatisticServer()
 	if err != nil {
 		logrus.Error(err)
 		os.Exit(-1)

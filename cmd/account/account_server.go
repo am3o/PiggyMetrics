@@ -43,7 +43,7 @@ func init() {
 }
 
 func main() {
-	server, err := initializeServer()
+	server, err := initializeAccountServer()
 	if err != nil {
 		logrus.Error(err)
 		return
@@ -52,8 +52,8 @@ func main() {
 	server.Run(viper.GetString(ConfigurationListenKey))
 }
 
-// initializeServer creates all pertinent endpoints of the service and returns the server.
-func initializeServer() (engine *gin.Engine, err error) {
+// initializeAccountServer creates all pertinent endpoints of the service and returns the server.
+func initializeAccountServer() (engine *gin.Engine, err error) {
 	engine = gin.Default()
 
 	internal := engine.Group("/internal")
